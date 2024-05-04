@@ -1,0 +1,42 @@
+﻿@model List<AllGroupsVM>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Read</th>
+			<th>Update</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (AllGroupsVM group in Model)
+		{
+			<tr>
+				<td>@group.Id</td>
+				<td>@group.Name</td>
+				<td>@group.Description</td>
+				<td>
+					<form asp-controller="Group" asp-action="ReadGroup">
+						<input type="hidden" name="id" value="@group.Id" />
+						<button type="submit" class="btn btn-primary btn-sm">Read</button>
+					</form>
+				</td>
+				<td>
+					<form method="get" asp-controller="Group" asp-action="EditGroup">
+						<input name="id" type="hidden" value="@group.Id" />
+						<button type="submit" class="btn btn-primary btn-sm">Update</button>
+					</form>
+				</td>
+				<td>
+					<form asp-controller="Group" asp-action="DeleteGroup">
+						<input name="id" type="hidden" value="@group.Id" />
+						<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+					</form>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

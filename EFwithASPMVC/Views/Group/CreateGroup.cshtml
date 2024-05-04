@@ -1,0 +1,16 @@
+﻿@model CrreateGroupVM
+
+
+<form method="post" asp-controller="Group" asp-action="CreateGroup" class="form-control">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="NameAddon">Name</span>
+        <input type="text" id="Name" name="Name" class="form-control" asp-for="Name" aria-describedby="NameAddon" />
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="DescriptionAddon">Description</span>
+        <input type="text" id="Description" name="Description" class="form-control" asp-for="Description" aria-describedby="DescriptionAddon" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+

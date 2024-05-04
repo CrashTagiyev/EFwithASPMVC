@@ -1,0 +1,26 @@
+﻿@model ReadGroupVM
+
+<h2>@Model.Id</h2>
+<h1>@Model.Name</h1>
+<p>@Model.Description</p>
+
+@if (Model.Students!.Any())
+{
+	<h2>Students</h2>
+	<ul>
+		@foreach (StudentVM student in Model.Students)
+		{
+			<li>
+				<div>
+					<h3>@student.FirstName - @student.LastName</h3>
+					<h4>@student.Email</h4>
+					<br />
+				</div>
+			</li>
+		}
+	</ul>
+}
+else
+{
+	<p>No students in this group.</p>
+}
